@@ -6,6 +6,30 @@ meta:
   created: 1767796579334
   modified: 1767796579334
   description: ""
+collection:
+  - url: https://httpbin.konghq.com/anything
+    name: Httpbin
+    meta:
+      id: req_cc22d369e5624e8ebb62840c10c864e7
+      created: 1768227418096
+      modified: 1768227439141
+      isPrivate: false
+      description: ""
+      sortKey: -1768227418096
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.2.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -799,4 +823,22 @@ spec:
   meta:
     id: spc_31e3f3c8b010481da577bfdbdacac913
     created: 1767796582979
-    modified: 1767796582979
+    modified: 1768227212578
+testSuites:
+  - name: New Suite
+    meta:
+      id: uts_b16b339465ba402a950055aa022f9e27
+      created: 1768227312803
+      modified: 1768227318615
+      sortKey: -1768227312803
+    tests:
+      - name: Returns 200
+        meta:
+          id: ut_a5b8bb9d66a84dd88ff6cbe5f30c866c
+          created: 1768227321705
+          modified: 1768227450166
+          sortKey: -1768227321705
+        requestId: req_cc22d369e5624e8ebb62840c10c864e7
+        code: |-
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(200);
