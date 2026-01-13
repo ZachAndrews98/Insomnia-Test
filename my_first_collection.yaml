@@ -12,7 +12,7 @@ collection:
     meta:
       id: req_5a3ef250b98a47e2906941d3a49d3cd1
       created: 1767796426239
-      modified: 1767796462071
+      modified: 1768313918158
       isPrivate: false
       description: ""
       sortKey: -1767796426239
@@ -22,6 +22,12 @@ collection:
         value: insomnia/12.2.0
         description: ""
         disabled: false
+    scripts:
+      afterResponse: |-
+        insomnia.test('Check the status', () => {
+        	const status = insomnia.response.code
+          insomnia.expect(status).to.eql(200);
+        });
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -35,11 +41,11 @@ cookieJar:
   meta:
     id: jar_91063b7450a0942b5e193287b0dfaaa91721a662
     created: 1767796426237
-    modified: 1767796426237
+    modified: 1768313895175
 environments:
   name: Base Environment
   meta:
     id: env_91063b7450a0942b5e193287b0dfaaa91721a662
     created: 1767796426236
-    modified: 1767796426236
+    modified: 1768313895181
     isPrivate: false
