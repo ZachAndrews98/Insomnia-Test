@@ -63,12 +63,12 @@ spec:
       license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
-      version: 1.0.27-SNAPSHOT
+      version: 1.0.27
     externalDocs:
       description: Find out more about Swagger
       url: https://swagger.io
     servers:
-      - url: https://petstore3.swagger.io/api/v3
+      - url: /api/v3
     tags:
       - name: pet
         description: Everything about your Pets
@@ -121,6 +121,10 @@ spec:
               description: Validation exception
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
         post:
           tags:
             - pet
@@ -156,6 +160,10 @@ spec:
               description: Validation exception
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
       /pet/findByStatus:
         get:
           tags:
@@ -167,7 +175,7 @@ spec:
             - name: status
               in: query
               description: Status values that need to be considered for filter
-              required: false
+              required: true
               explode: true
               schema:
                 type: string
@@ -194,6 +202,10 @@ spec:
               description: Invalid status value
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
       /pet/findByTags:
         get:
           tags:
@@ -206,7 +218,7 @@ spec:
             - name: tags
               in: query
               description: Tags to filter by
-              required: false
+              required: true
               explode: true
               schema:
                 type: array
@@ -230,6 +242,10 @@ spec:
               description: Invalid tag value
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
       /pet/{petId}:
         get:
           tags:
@@ -261,6 +277,10 @@ spec:
               description: Pet not found
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
         post:
           tags:
             - pet
@@ -299,6 +319,10 @@ spec:
               description: Invalid input
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
         delete:
           tags:
             - pet
@@ -326,6 +350,10 @@ spec:
               description: Invalid pet value
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
       /pet/{petId}/uploadImage:
         post:
           tags:
@@ -366,6 +394,10 @@ spec:
               description: Pet not found
             default:
               description: Unexpected error
+          security:
+            - petstore_auth:
+                - write:pets
+                - read:pets
       /store/inventory:
         get:
           tags:
@@ -373,7 +405,6 @@ spec:
           summary: Returns pet inventories by status.
           description: Returns a map of status codes to quantities.
           operationId: getInventory
-          x-swagger-router-controller: OrderController
           responses:
             "200":
               description: successful operation
@@ -392,7 +423,6 @@ spec:
             - store
           summary: Place an order for a pet.
           description: Place a new order in the store.
-          x-swagger-router-controller: OrderController
           operationId: placeOrder
           requestBody:
             content:
@@ -423,7 +453,6 @@ spec:
           tags:
             - store
           summary: Find purchase order by ID.
-          x-swagger-router-controller: OrderController
           description: For valid response try integer IDs with value <= 5 or > 10. Other
             values will generate exceptions.
           operationId: getOrderById
@@ -457,7 +486,6 @@ spec:
           summary: Delete purchase order by identifier.
           description: For valid response try integer IDs with value < 1000. Anything
             above 1000 or non-integers will generate API errors.
-          x-swagger-router-controller: OrderController
           operationId: deleteOrder
           parameters:
             - name: orderId
@@ -482,7 +510,6 @@ spec:
             - user
           summary: Create user.
           description: This can only be done by the logged in user.
-          x-swagger-router-controller: UserController
           operationId: createUser
           requestBody:
             description: Created user object
@@ -514,7 +541,6 @@ spec:
             - user
           summary: Creates list of users with given input array.
           description: Creates list of users with given input array.
-          x-swagger-router-controller: UserController
           operationId: createUsersWithListInput
           requestBody:
             content:
@@ -627,7 +653,6 @@ spec:
             - user
           summary: Update user resource.
           description: This can only be done by the logged in user.
-          x-swagger-router-controller: UserController
           operationId: updateUser
           parameters:
             - name: username
@@ -682,7 +707,6 @@ spec:
     components:
       schemas:
         Order:
-          x-swagger-router-model: io.swagger.petstore.model.Order
           type: object
           properties:
             id:
@@ -713,7 +737,6 @@ spec:
           xml:
             name: order
         Category:
-          x-swagger-router-model: io.swagger.petstore.model.Category
           type: object
           properties:
             id:
@@ -726,7 +749,6 @@ spec:
           xml:
             name: category
         User:
-          x-swagger-router-model: io.swagger.petstore.model.User
           type: object
           properties:
             id:
@@ -759,7 +781,6 @@ spec:
           xml:
             name: user
         Tag:
-          x-swagger-router-model: io.swagger.petstore.model.Tag
           type: object
           properties:
             id:
@@ -770,7 +791,6 @@ spec:
           xml:
             name: tag
         Pet:
-          x-swagger-router-model: io.swagger.petstore.model.Pet
           required:
             - name
             - photoUrls
@@ -820,10 +840,41 @@ spec:
               type: string
           xml:
             name: "##default"
+      requestBodies:
+        Pet:
+          description: Pet object that needs to be added to the store
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        UserArray:
+          description: List of user object
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+      securitySchemes:
+        petstore_auth:
+          type: oauth2
+          flows:
+            implicit:
+              authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+              scopes:
+                write:pets: modify pets in your account
+                read:pets: read your pets
+        api_key:
+          type: apiKey
+          name: api_key
+          in: header
   meta:
     id: spc_31e3f3c8b010481da577bfdbdacac913
     created: 1767796582979
-    modified: 1768227212578
+    modified: 1768490259731
 testSuites:
   - name: New Suite
     meta:
