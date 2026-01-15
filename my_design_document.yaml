@@ -30,6 +30,588 @@ collection:
         send: true
         store: true
       rebuildPath: true
+  - name: pet
+    meta:
+      id: fld_47a719a98557442a9ddbfab3ff85bbf9
+      created: 1768492166082
+      modified: 1768492166082
+      sortKey: -1768492166082
+      description: Everything about your Pets
+    children:
+      - url: "{{ _.base_url }}/pet"
+        name: Update an existing pet.
+        meta:
+          id: req_a9649103d5944ebf98c32e0d85c13189
+          created: 1768492166083
+          modified: 1768492166083
+          isPrivate: false
+          description: Update an existing pet by Id.
+          sortKey: -1768492166083
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "name": "doggie",
+              "category": {
+                "id": 1,
+                "name": "Dogs"
+              },
+              "photoUrls": [
+                "string"
+              ],
+              "tags": [
+                {
+                  "id": 0,
+                  "name": "string"
+                }
+              ],
+              "status": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/findByStatus"
+        name: Finds Pets by status.
+        meta:
+          id: req_5721ecc4de694b989f90279e2585df29
+          created: 1768492166084
+          modified: 1768492166084
+          isPrivate: false
+          description: Multiple status values can be provided with comma separated strings.
+          sortKey: -1768492166084
+        method: GET
+        parameters:
+          - name: status
+            value: available
+            disabled: false
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet"
+        name: Add a new pet to the store.
+        meta:
+          id: req_62cec46ace544735bfe7bb1b44509b5c
+          created: 1768492166084
+          modified: 1768492166084
+          isPrivate: false
+          description: Add a new pet to the store.
+          sortKey: -1768492166084
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "name": "doggie",
+              "category": {
+                "id": 1,
+                "name": "Dogs"
+              },
+              "photoUrls": [
+                "string"
+              ],
+              "tags": [
+                {
+                  "id": 0,
+                  "name": "string"
+                }
+              ],
+              "status": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/findByTags"
+        name: Finds Pets by tags.
+        meta:
+          id: req_1a01e5af696e4761b0f745ee97c00088
+          created: 1768492166085
+          modified: 1768492166085
+          isPrivate: false
+          description: Multiple tags can be provided with comma separated strings. Use
+            tag1, tag2, tag3 for testing.
+          sortKey: -1768492166085
+        method: GET
+        parameters:
+          - name: tags
+            value: string
+            disabled: false
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Find pet by ID.
+        meta:
+          id: req_5084babcaafe44369e38f376ba164954
+          created: 1768492166085
+          modified: 1768492166085
+          isPrivate: false
+          description: Returns a single pet.
+          sortKey: -1768492166085
+        method: GET
+        authentication:
+          type: apikey
+          key: api_key
+          value: "{{ _.apiKey }}"
+          addTo: header
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Updates a pet in the store with form data.
+        meta:
+          id: req_51a1c62060b948c2ba7f56788b376653
+          created: 1768492166086
+          modified: 1768492166086
+          isPrivate: false
+          description: Updates a pet resource based on the form data.
+          sortKey: -1768492166086
+        method: POST
+        parameters:
+          - name: name
+            value: string
+            disabled: true
+          - name: status
+            value: string
+            disabled: true
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}/uploadImage"
+        name: Uploads an image.
+        meta:
+          id: req_6b82e40a969944938dadd34653172332
+          created: 1768492166086
+          modified: 1768492166086
+          isPrivate: false
+          description: Upload image of the pet.
+          sortKey: -1768492166086
+        method: POST
+        body:
+          mimeType: application/octet-stream
+        parameters:
+          - name: additionalMetadata
+            value: string
+            disabled: true
+        headers:
+          - name: Content-Type
+            value: application/octet-stream
+            disabled: false
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/pet/{{ _.petId }}"
+        name: Deletes a pet.
+        meta:
+          id: req_8366349b9e774982a2616c81c2c9b2ba
+          created: 1768492166086
+          modified: 1768492166086
+          isPrivate: false
+          description: Delete a pet.
+          sortKey: -1768492166086
+        method: DELETE
+        headers:
+          - name: api_key
+            value: string
+            disabled: true
+        authentication:
+          type: oauth2
+          grantType: implicit
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          clientId: "{{ _.oauth2ClientId }}"
+          scope: write:pets read:pets
+          redirectUrl: "{{ _.oauth2RedirectUrl }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: store
+    meta:
+      id: fld_6c71af589d6649989be8ce5de4588a90
+      created: 1768492166082
+      modified: 1768492166082
+      sortKey: -1768492166082
+      description: Access to Petstore orders
+    children:
+      - url: "{{ _.base_url }}/store/inventory"
+        name: Returns pet inventories by status.
+        meta:
+          id: req_bc5ade7e1ce04f049eee701b7d2b54bd
+          created: 1768492166086
+          modified: 1768492166086
+          isPrivate: false
+          description: Returns a map of status codes to quantities.
+          sortKey: -1768492166086
+        method: GET
+        authentication:
+          type: apikey
+          key: api_key
+          value: "{{ _.apiKey }}"
+          addTo: header
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/order"
+        name: Place an order for a pet.
+        meta:
+          id: req_7a700cdc5df547968736c48323cbc715
+          created: 1768492166087
+          modified: 1768492166087
+          isPrivate: false
+          description: Place a new order in the store.
+          sortKey: -1768492166087
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "petId": 198772,
+              "quantity": 7,
+              "shipDate": "2026-01-15T15:49:26.077Z",
+              "status": "approved",
+              "complete": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/order/{{ _.orderId }}"
+        name: Delete purchase order by identifier.
+        meta:
+          id: req_9a7d28587a2b49b2872293e6f2da8d1e
+          created: 1768492166087
+          modified: 1768492166087
+          isPrivate: false
+          description: For valid response try integer IDs with value < 1000. Anything
+            above 1000 or non-integers will generate API errors.
+          sortKey: -1768492166087
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/store/order/{{ _.orderId }}"
+        name: Find purchase order by ID.
+        meta:
+          id: req_dc3ac406be344b868239953e2d0df16a
+          created: 1768492166087
+          modified: 1768492166087
+          isPrivate: false
+          description: For valid response try integer IDs with value <= 5 or > 10. Other
+            values will generate exceptions.
+          sortKey: -1768492166087
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: user
+    meta:
+      id: fld_9ae005840fcf47e5b29b0276b44ccd4a
+      created: 1768492166082
+      modified: 1768492166082
+      sortKey: -1768492166082
+      description: Operations about user
+    children:
+      - url: "{{ _.base_url }}/user"
+        name: Create user.
+        meta:
+          id: req_a9088141a87643b094b6ec2f6463d0b4
+          created: 1768492166088
+          modified: 1768492166088
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1768492166088
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "username": "theUser",
+              "firstName": "John",
+              "lastName": "James",
+              "email": "john@email.com",
+              "password": "12345",
+              "phone": "12345",
+              "userStatus": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/login"
+        name: Logs user into the system.
+        meta:
+          id: req_b989d3f06f6c49b198f50c7dbe148ec4
+          created: 1768492166088
+          modified: 1768492166088
+          isPrivate: false
+          description: Log into the system.
+          sortKey: -1768492166088
+        method: GET
+        parameters:
+          - name: username
+            value: string
+            disabled: true
+          - name: password
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/createWithList"
+        name: Creates list of users with given input array.
+        meta:
+          id: req_f3773d1208ec48a2b78c112c6935029f
+          created: 1768492166088
+          modified: 1768492166088
+          isPrivate: false
+          description: Creates list of users with given input array.
+          sortKey: -1768492166088
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            [
+              {
+                "id": 10,
+                "username": "theUser",
+                "firstName": "John",
+                "lastName": "James",
+                "email": "john@email.com",
+                "password": "12345",
+                "phone": "12345",
+                "userStatus": 1
+              }
+            ]
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/logout"
+        name: Logs out current logged in user session.
+        meta:
+          id: req_831b0e9a44e54702a00a69f4f487558f
+          created: 1768492166089
+          modified: 1768492166089
+          isPrivate: false
+          description: Log user out of the system.
+          sortKey: -1768492166089
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Get user by user name.
+        meta:
+          id: req_9ef56013dadf45dc9b574ebac5ac1a8e
+          created: 1768492166090
+          modified: 1768492166090
+          isPrivate: false
+          description: Get user detail based on username.
+          sortKey: -1768492166090
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Update user resource.
+        meta:
+          id: req_f72dd8897dc94e508b1ca1abec80488f
+          created: 1768492166090
+          modified: 1768492166090
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1768492166090
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 10,
+              "username": "theUser",
+              "firstName": "John",
+              "lastName": "James",
+              "email": "john@email.com",
+              "password": "12345",
+              "phone": "12345",
+              "userStatus": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/user/{{ _.username }}"
+        name: Delete user resource.
+        meta:
+          id: req_fcfe697dc45448cfbe980dbc7a2c29c6
+          created: 1768492166090
+          modified: 1768492166090
+          isPrivate: false
+          description: This can only be done by the logged in user.
+          sortKey: -1768492166090
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -41,8 +623,26 @@ environments:
   meta:
     id: env_b4aa0777fe9a91dcb0c70120e6b73408794c37b4
     created: 1767796579376
-    modified: 1767796579376
+    modified: 1768492166080
     isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env null
+      meta:
+        id: env_0e10b203f8bf41daa6ac729e563654ee
+        created: 1768492166081
+        modified: 1768492166081
+        isPrivate: false
+        sortKey: 1768492166081
+      data:
+        scheme:
+          - http
+        base_path: /api/v3
+        host: ""
+        apiKey: apiKey
+        oauth2ClientId: clientId
+        oauth2RedirectUrl: http://localhost/
 spec:
   contents:
     openapi: 3.0.4
