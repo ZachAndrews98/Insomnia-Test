@@ -6,6 +6,127 @@ meta:
   created: 1769005628326
   modified: 1769005628326
   description: ""
+collection:
+  - name: Todos
+    meta:
+      id: fld_770b505fb7fd40a2aad29bc9adecb2f5
+      created: 1769006001046
+      modified: 1769006001046
+      sortKey: -1769006001046
+      description: Operations related to TODO items
+    children:
+      - url: "{{ _.base_url }}/todos"
+        name: List all todos
+        meta:
+          id: req_2a60da19a7d3439186dbe209a12de2e5
+          created: 1769006001047
+          modified: 1769006001047
+          isPrivate: false
+          description: Returns a list of all TODO items.
+          sortKey: -1769006001047
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos"
+        name: Create a new todo
+        meta:
+          id: req_72f41476401c4212b4fdb1a2258f8dd4
+          created: 1769006001047
+          modified: 1769006001047
+          isPrivate: false
+          description: Creates a new TODO item.
+          sortKey: -1769006001047
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "string",
+              "completed": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Get a todo by ID
+        meta:
+          id: req_bb65fdd69f0f4b07a65bb3ffc79df64d
+          created: 1769006001048
+          modified: 1769006001048
+          isPrivate: false
+          description: Retrieves a specific TODO item by its ID.
+          sortKey: -1769006001048
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Update a todo by ID
+        meta:
+          id: req_24831e99823d49628930e250ead15f57
+          created: 1769006001049
+          modified: 1769006001049
+          isPrivate: false
+          description: Updates a specific TODO item by its ID.
+          sortKey: -1769006001049
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "string",
+              "completed": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Delete a todo by ID
+        meta:
+          id: req_3465221a2f864a2581661b70653be67b
+          created: 1769006001049
+          modified: 1769006001049
+          isPrivate: false
+          description: Deletes a specific TODO item by its ID.
+          sortKey: -1769006001049
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -17,8 +138,22 @@ environments:
   meta:
     id: env_33bc9d50ec6d4da82e155d0c855a67e2f6fdfecc
     created: 1769005628330
-    modified: 1769005628330
+    modified: 1769006001044
     isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env api.example.com
+      meta:
+        id: env_0c9edb27080b4abd833166ecb3eaff2c
+        created: 1769006001045
+        modified: 1769006001045
+        isPrivate: false
+        sortKey: 1769006001045
+      data:
+        scheme: https
+        base_path: ""
+        host: api.example.com
 spec:
   contents:
     openapi: 3.0.0
