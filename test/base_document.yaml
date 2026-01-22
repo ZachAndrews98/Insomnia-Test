@@ -1,0 +1,7 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: Base Document
+meta:
+  id: wrk_base_document
+  description: ""
+spec:
