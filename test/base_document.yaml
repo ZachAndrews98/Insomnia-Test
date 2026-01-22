@@ -1,0 +1,298 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: My Design Document3
+meta:
+  id: wrk_655ee8e5f08a4c9db792aa8d0ebb2e2b
+  created: 1769005628326
+  modified: 1769005628326
+  description: ""
+collection:
+  - name: Todos
+    meta:
+      id: fld_770b505fb7fd40a2aad29bc9adecb2f5
+      created: 1769006001046
+      modified: 1769006001046
+      sortKey: -1769006001046
+      description: Operations related to TODO items
+    children:
+      - url: "{{ _.base_url }}/todos"
+        name: List all todos
+        meta:
+          id: req_2a60da19a7d3439186dbe209a12de2e5
+          created: 1769006001047
+          modified: 1769006001047
+          isPrivate: false
+          description: Returns a list of all TODO items.
+          sortKey: -1769006001047
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos"
+        name: Create a new todo
+        meta:
+          id: req_72f41476401c4212b4fdb1a2258f8dd4
+          created: 1769006001047
+          modified: 1769006001047
+          isPrivate: false
+          description: Creates a new TODO item.
+          sortKey: -1769006001047
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "string",
+              "completed": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Get a todo by ID
+        meta:
+          id: req_bb65fdd69f0f4b07a65bb3ffc79df64d
+          created: 1769006001048
+          modified: 1769006001048
+          isPrivate: false
+          description: Retrieves a specific TODO item by its ID.
+          sortKey: -1769006001048
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Update a todo by ID
+        meta:
+          id: req_24831e99823d49628930e250ead15f57
+          created: 1769006001049
+          modified: 1769006001049
+          isPrivate: false
+          description: Updates a specific TODO item by its ID.
+          sortKey: -1769006001049
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "title": "string",
+              "completed": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/todos/{{ _.id }}"
+        name: Delete a todo by ID
+        meta:
+          id: req_3465221a2f864a2581661b70653be67b
+          created: 1769006001049
+          modified: 1769006001049
+          isPrivate: false
+          description: Deletes a specific TODO item by its ID.
+          sortKey: -1769006001049
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_33bc9d50ec6d4da82e155d0c855a67e2f6fdfecc
+    created: 1769005628331
+    modified: 1769005628331
+environments:
+  name: Base Environment
+  meta:
+    id: env_33bc9d50ec6d4da82e155d0c855a67e2f6fdfecc
+    created: 1769005628330
+    modified: 1769006001044
+    isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env api.example.com
+      meta:
+        id: env_0c9edb27080b4abd833166ecb3eaff2c
+        created: 1769006001045
+        modified: 1769006001045
+        isPrivate: false
+        sortKey: 1769006001045
+      data:
+        scheme: https
+        base_path: ""
+        host: api.example.com
+spec:
+  contents:
+    openapi: 3.0.0
+    info:
+      title: Simple TODO API
+      version: 1.0.0
+      description: A minimal API to manage a list of TODO items.
+      contact:
+        name: API Support
+        email: support@example.com
+    servers:
+      - url: https://api.example.com
+    tags:
+      - name: Todos
+        description: Operations related to TODO items
+    paths:
+      /todos:
+        get:
+          summary: List all todos
+          description: Returns a list of all TODO items.
+          operationId: listTodos
+          tags:
+            - Todos
+          responses:
+            "200":
+              description: A JSON array of TODOs
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Todo"
+        post:
+          summary: Create a new todo
+          description: Creates a new TODO item.
+          operationId: createTodo
+          tags:
+            - Todos
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/TodoInput"
+          responses:
+            "201":
+              description: The created TODO item
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Todo"
+      /todos/{id}:
+        parameters:
+          - in: path
+            name: id
+            required: true
+            description: The ID of the TODO item
+            schema:
+              type: string
+        get:
+          summary: Get a todo by ID
+          description: Retrieves a specific TODO item by its ID.
+          operationId: getTodoById
+          tags:
+            - Todos
+          responses:
+            "200":
+              description: The requested TODO item
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Todo"
+            "404":
+              description: TODO item not found
+        put:
+          summary: Update a todo by ID
+          description: Updates a specific TODO item by its ID.
+          operationId: updateTodo
+          tags:
+            - Todos
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/TodoInput"
+          responses:
+            "200":
+              description: The updated TODO item
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Todo"
+            "404":
+              description: TODO item not found
+        delete:
+          summary: Delete a todo by ID
+          description: Deletes a specific TODO item by its ID.
+          operationId: deleteTodo
+          tags:
+            - Todos
+          responses:
+            "204":
+              description: TODO item deleted
+            "404":
+              description: TODO item not found
+    components:
+      schemas:
+        Todo:
+          type: object
+          description: A TODO item
+          properties:
+            id:
+              type: string
+              description: Unique identifier for the TODO item
+            title:
+              type: string
+              description: The title of the TODO item
+            completed:
+              type: boolean
+              description: Indicates if the TODO item is completed
+          required:
+            - id
+            - title
+            - completed
+        TodoInput:
+          type: object
+          description: Input data for creating or updating a TODO item
+          properties:
+            title:
+              type: string
+              description: The title of the TODO item
+            completed:
+              type: boolean
+              description: Indicates if the TODO item is completed
+          required:
+            - title
+            - completed
+  meta:
+    id: spc_4b24fe94905d41059a99407dc2e0d269
+    created: 1769005633939
+    modified: 1769005633939
