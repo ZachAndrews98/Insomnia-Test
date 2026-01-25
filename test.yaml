@@ -2,47 +2,48 @@ type: spec.insomnia.rest/5.0
 schema_version: "5.1"
 name: test
 meta:
-  id: wrk_9b2bf743ec61463199cc60bad15fd711
-  created: 1769361212
-  modified: 1769361212
+  id: wrk_fe08686b82e3498ca67ae4871adad5aa
+  created: 1769361804
+  modified: 1769361804
   description: ""
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_9c4ddaae170449e18a55dc5c31ec9a95
-    created: 1769361212
-    modified: 1769361212
+    id: jar_e476ec6f1e7f4d3eab06f280f4f7be47
+    created: 1769361804
+    modified: 1769361804
 environments:
   name: Base Environment
   meta:
-    id: env_1b32c059fc6d4138922a8d768b43d5d1
-    created: 1769361212
-    modified: 1769361212
+    id: env_08c8038c70304fc4870ea5db6deb2c03
+    created: 1769361804
+    modified: 1769361804
     isPrivate: false
 spec:
   contents:
+  
     openapi: 3.0.4
     info:
       title: Swagger Petstore - OpenAPI 3.0
       description: >-
         This is a sample Pet Store Server based on the OpenAPI 3.0 specification. 
         You can find out more about
-
+    
         Swagger at [https://swagger.io](https://swagger.io). In the third iteration
         of the pet store, we've switched to the design first approach!
-
+    
         You can now help us improve the API whether it's by making changes to the
         definition itself or to the code.
-
+    
         That way, with time, we can improve the API in general, and expose some of
         the new features in OAS3.
-
-
+    
+    
         Some useful links:
-
+    
         - [The Pet Store
         repository](https://github.com/swagger-api/swagger-petstore)
-
+    
         - [The source API definition for the Pet
         Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
       termsOfService: 'https://swagger.io/terms/'
@@ -867,6 +868,6 @@ spec:
           name: api_key
           in: header
   meta:
-    id: spc_5d4c6c2dca7341738405b8fdadb90f47
-    created: 1769361212
-    modified: 1769361212
+    id: spc_cf23b2efbaf647c8809b47f79a525db5
+    created: 1769361804
+    modified: 1769361804
