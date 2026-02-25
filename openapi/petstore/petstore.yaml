@@ -1,0 +1,28 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: petstore
+meta:
+  id: wrk_ec03f461cba7471a9148aec02d57dc44
+  created: 1772029126
+  modified: 1772029126
+  description: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_daf0e5e9d1e14adbbd491dcdcb396a0d
+    created: 1772029126
+    modified: 1772029126
+environments:
+  name: Base Environment
+  meta:
+    id: env_d8e5f6222f6a4d1fb09184b59588d047
+    created: 1772029126
+    modified: 1772029126
+    isPrivate: false
+spec:
+  contents:
+  
+  meta:
+    id: spc_ef3f00f3f5bd4c6d824d986b8f78d480
+    created: 1772029126
+    modified: 1772029126
