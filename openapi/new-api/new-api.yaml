@@ -1,6 +1,6 @@
 type: spec.insomnia.rest/5.0
 schema_version: "5.1"
-name: My Design Document
+name: New-API
 meta:
   id: wrk_8c3583dc4b5940faa4a3144c1331b52d
   created: 1772030085841
