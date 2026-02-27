@@ -29,7 +29,7 @@ spec:
         Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
         You can now help us improve the API whether it's by making changes to the definition itself or to the code.
         That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
-    
+
         Some useful links:
         - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
         - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
@@ -39,7 +39,7 @@ spec:
       license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
-      version: 1.0.27-SNAPSHOT
+      version: 1.0.28-SNAPSHOT
     externalDocs:
       description: Find out more about Swagger
       url: https://swagger.io
@@ -71,33 +71,32 @@ spec:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
               application/xml:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
               application/x-www-form-urlencoded:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
             required: true
           responses:
-            '200':
+            "200":
               description: Successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Pet'
+                    $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/Pet'
-            '400':
+                    $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid ID supplied
-            '404':
+            "404":
               description: Pet not found
-            '422':
+            "422":
               description: Validation exception
             default:
               description: Unexpected error
-    
         post:
           tags:
             - pet
@@ -109,27 +108,27 @@ spec:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
               application/xml:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
               application/x-www-form-urlencoded:
                 schema:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
             required: true
           responses:
-            '200':
+            "200":
               description: Successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Pet'
+                    $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/Pet'
-            '400':
+                    $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid input
-            '422':
+            "422":
               description: Validation exception
             default:
               description: Unexpected error
@@ -154,20 +153,20 @@ spec:
                   - pending
                   - sold
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Pet'
+                      $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Pet'
-            '400':
+                      $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid status value
             default:
               description: Unexpected error
@@ -176,7 +175,8 @@ spec:
           tags:
             - pet
           summary: Finds Pets by tags.
-          description: Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+          description: Multiple tags can be provided with comma separated strings. Use
+            tag1, tag2, tag3 for testing.
           operationId: findPetsByTags
           parameters:
             - name: tags
@@ -189,20 +189,20 @@ spec:
                 items:
                   type: string
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Pet'
+                      $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Pet'
-            '400':
+                      $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid tag value
             default:
               description: Unexpected error
@@ -222,22 +222,21 @@ spec:
                 type: integer
                 format: int64
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Pet'
+                    $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/Pet'
-            '400':
+                    $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid ID supplied
-            '404':
+            "404":
               description: Pet not found
             default:
               description: Unexpected error
-    
         post:
           tags:
             - pet
@@ -263,16 +262,16 @@ spec:
               schema:
                 type: string
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Pet'
+                    $ref: "#/components/schemas/Pet"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/Pet'
-            '400':
+                    $ref: "#/components/schemas/Pet"
+            "400":
               description: Invalid input
             default:
               description: Unexpected error
@@ -285,7 +284,7 @@ spec:
           parameters:
             - name: api_key
               in: header
-              description: ''
+              description: ""
               required: false
               schema:
                 type: string
@@ -297,9 +296,9 @@ spec:
                 type: integer
                 format: int64
           responses:
-            '200':
+            "200":
               description: Pet deleted
-            '400':
+            "400":
               description: Invalid pet value
             default:
               description: Unexpected error
@@ -331,15 +330,15 @@ spec:
                   type: string
                   format: binary
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/ApiResponse'
-            '400':
+                    $ref: "#/components/schemas/ApiResponse"
+            "400":
               description: No file uploaded
-            '404':
+            "404":
               description: Pet not found
             default:
               description: Unexpected error
@@ -352,7 +351,7 @@ spec:
           operationId: getInventory
           x-swagger-router-controller: OrderController
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
@@ -375,23 +374,23 @@ spec:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Order'
+                  $ref: "#/components/schemas/Order"
               application/xml:
                 schema:
-                  $ref: '#/components/schemas/Order'
+                  $ref: "#/components/schemas/Order"
               application/x-www-form-urlencoded:
                 schema:
-                  $ref: '#/components/schemas/Order'
+                  $ref: "#/components/schemas/Order"
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Order'
-            '400':
+                    $ref: "#/components/schemas/Order"
+            "400":
               description: Invalid input
-            '422':
+            "422":
               description: Validation exception
             default:
               description: Unexpected error
@@ -401,7 +400,8 @@ spec:
             - store
           summary: Find purchase order by ID.
           x-swagger-router-controller: OrderController
-          description: For valid response try integer IDs with value <= 5 or > 10. Other values will generate exceptions.
+          description: For valid response try integer IDs with value <= 5 or > 10. Other
+            values will generate exceptions.
           operationId: getOrderById
           parameters:
             - name: orderId
@@ -412,18 +412,18 @@ spec:
                 type: integer
                 format: int64
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/Order'
+                    $ref: "#/components/schemas/Order"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/Order'
-            '400':
+                    $ref: "#/components/schemas/Order"
+            "400":
               description: Invalid ID supplied
-            '404':
+            "404":
               description: Order not found
             default:
               description: Unexpected error
@@ -431,7 +431,8 @@ spec:
           tags:
             - store
           summary: Delete purchase order by identifier.
-          description: For valid response try integer IDs with value < 1000. Anything above 1000 or non-integers will generate API errors.
+          description: For valid response try integer IDs with value < 1000. Anything
+            above 1000 or non-integers will generate API errors.
           x-swagger-router-controller: OrderController
           operationId: deleteOrder
           parameters:
@@ -443,11 +444,11 @@ spec:
                 type: integer
                 format: int64
           responses:
-            '200':
+            "200":
               description: order deleted
-            '400':
+            "400":
               description: Invalid ID supplied
-            '404':
+            "404":
               description: Order not found
             default:
               description: Unexpected error
@@ -464,23 +465,23 @@ spec:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
               application/xml:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
               application/x-www-form-urlencoded:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
             default:
               description: Unexpected error
       /user/createWithList:
@@ -497,17 +498,17 @@ spec:
                 schema:
                   type: array
                   items:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
           responses:
-            '200':
+            "200":
               description: Successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
             default:
               description: Unexpected error
       /user/login:
@@ -531,7 +532,7 @@ spec:
               schema:
                 type: string
           responses:
-            '200':
+            "200":
               description: successful operation
               headers:
                 X-Rate-Limit:
@@ -551,7 +552,7 @@ spec:
                 application/json:
                   schema:
                     type: string
-            '400':
+            "400":
               description: Invalid username/password supplied
             default:
               description: Unexpected error
@@ -562,9 +563,8 @@ spec:
           summary: Logs out current logged in user session.
           description: Log user out of the system.
           operationId: logoutUser
-          parameters: []
           responses:
-            '200':
+            "200":
               description: successful operation
             default:
               description: Unexpected error
@@ -583,18 +583,18 @@ spec:
               schema:
                 type: string
           responses:
-            '200':
+            "200":
               description: successful operation
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/User'
+                    $ref: "#/components/schemas/User"
                 application/xml:
                   schema:
-                    $ref: '#/components/schemas/User'
-            '400':
+                    $ref: "#/components/schemas/User"
+            "400":
               description: Invalid username supplied
-            '404':
+            "404":
               description: User not found
             default:
               description: Unexpected error
@@ -617,19 +617,19 @@ spec:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
               application/xml:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
               application/x-www-form-urlencoded:
                 schema:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
           responses:
-            '200':
+            "200":
               description: successful operation
-            '400':
+            "400":
               description: bad request
-            '404':
+            "404":
               description: user not found
             default:
               description: Unexpected error
@@ -647,11 +647,11 @@ spec:
               schema:
                 type: string
           responses:
-            '200':
+            "200":
               description: User deleted
-            '400':
+            "400":
               description: Invalid username supplied
-            '404':
+            "404":
               description: User not found
             default:
               description: Unexpected error
@@ -723,10 +723,10 @@ spec:
               example: john@email.com
             password:
               type: string
-              example: '12345'
+              example: "12345"
             phone:
               type: string
-              example: '12345'
+              example: "12345"
             userStatus:
               type: integer
               description: User Status
@@ -760,7 +760,7 @@ spec:
               type: string
               example: doggie
             category:
-              $ref: '#/components/schemas/Category'
+              $ref: "#/components/schemas/Category"
             photoUrls:
               type: array
               xml:
@@ -774,7 +774,7 @@ spec:
               xml:
                 wrapped: true
               items:
-                $ref: '#/components/schemas/Tag'
+                $ref: "#/components/schemas/Tag"
             status:
               type: string
               description: pet status in the store
@@ -795,8 +795,8 @@ spec:
             message:
               type: string
           xml:
-            name: '##default'
+            name: "##default"
   meta:
     id: spc_c69ce10cb1ee4873b38749ec1ee66b4c
     created: 1772224805
-    modified: 1772224805
+    modified: 1772224848868
