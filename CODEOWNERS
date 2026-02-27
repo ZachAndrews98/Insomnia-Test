@@ -5,9 +5,7 @@
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
-*       @ZachAndrews98
+*       @not-real
 
 
-/openapi/petstore/* @ZachAndrews98
-
-/openapi/todo/* @not-real
+/openapi/petstore/* @not-real
