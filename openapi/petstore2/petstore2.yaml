@@ -1,47 +1,23 @@
 type: spec.insomnia.rest/5.0
 schema_version: "5.1"
-name: My Design Document
+name: petstore2
 meta:
-  id: wrk_682c0b74519d46609c8ea7f802b07179
-  created: 1767796579334
-  modified: 1767796579334
+  id: wrk_44594b463e584492a1e7b8ee32ac99a3
+  created: 1772226363
+  modified: 1772226363
   description: ""
-collection:
-  - url: https://httpbin.konghq.com/anything
-    name: Httpbin
-    meta:
-      id: req_cc22d369e5624e8ebb62840c10c864e7
-      created: 1768227418096
-      modified: 1768227439141
-      isPrivate: false
-      description: ""
-      sortKey: -1768227418096
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/12.2.0
-        description: ""
-        disabled: false
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_b4aa0777fe9a91dcb0c70120e6b73408794c37b4
-    created: 1767796579378
-    modified: 1767796579378
+    id: jar_8ac133a85f974115889e2c446b8718fd
+    created: 1772226363
+    modified: 1772226363
 environments:
   name: Base Environment
   meta:
-    id: env_b4aa0777fe9a91dcb0c70120e6b73408794c37b4
-    created: 1767796579376
-    modified: 1767796579376
+    id: env_cd6808880f5147198c05bdfb6813742b
+    created: 1772226363
+    modified: 1772226363
     isPrivate: false
 spec:
   contents:
@@ -63,7 +39,7 @@ spec:
       license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
-      version: 1.0.27-SNAPSHOT
+      version: 1.0.28-SNAPSHOT
     externalDocs:
       description: Find out more about Swagger
       url: https://swagger.io
@@ -821,24 +797,6 @@ spec:
           xml:
             name: "##default"
   meta:
-    id: spc_31e3f3c8b010481da577bfdbdacac913
-    created: 1767796582979
-    modified: 1768227212578
-testSuites:
-  - name: New Suite
-    meta:
-      id: uts_b16b339465ba402a950055aa022f9e27
-      created: 1768227312803
-      modified: 1768227318615
-      sortKey: -1768227312803
-    tests:
-      - name: Returns 200
-        meta:
-          id: ut_a5b8bb9d66a84dd88ff6cbe5f30c866c
-          created: 1768227321705
-          modified: 1768227450166
-          sortKey: -1768227321705
-        requestId: req_cc22d369e5624e8ebb62840c10c864e7
-        code: |-
-          const response1 = await insomnia.send();
-          expect(response1.status).to.equal(200);
+    id: spc_480d1d782578429b86a18434d5efc151
+    created: 1772226363
+    modified: 1772226691059
