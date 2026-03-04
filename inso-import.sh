@@ -28,6 +28,7 @@ sed -i "s/<spec>/$spec/g"  ./openapi/$filename/$filename.yaml
 # create temp file for indenting oas spec for copying into design doc
 sed 's/^/    /' ./openapi/$filename/oas.yaml > ./openapi/$filename/temp-oas.yaml
 sed -i "23r ./openapi/$filename/temp-oas.yaml" ./openapi/$filename/$filename.yaml
+sed -i 's/'"'"'/"/g' ./openapi/$filename/$filename.yaml
 # sed -i "r /<content>/ ./openapi/$filename/temp-oas.yaml" ./openapi/$filename/$filename.yaml
 rm ./openapi/$filename/temp-oas.yaml
 
