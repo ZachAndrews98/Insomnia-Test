@@ -2,22 +2,22 @@ type: spec.insomnia.rest/5.0
 schema_version: "5.1"
 name: petstore
 meta:
-  id: wrk_645520cf8e84455d8ac33368bd4334a6
-  created: 1772224805
-  modified: 1772224805
+  id: wrk_40618d9b1b1f46b29902a74b32d558ac
+  created: 1772648967
+  modified: 1772648967
   description: ""
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_ad742e5877064521a8e25fe49816ca2a
-    created: 1772224805
-    modified: 1772224805
+    id: jar_44facfae828b4b0fba97aeb48bcd853c
+    created: 1772648967
+    modified: 1772648967
 environments:
   name: Base Environment
   meta:
-    id: env_ca18fe882c4147cd979c3111f67a799b
-    created: 1772224805
-    modified: 1772224805
+    id: env_eacf3431436643eb809b24ad7f0dd47f
+    created: 1772648967
+    modified: 1772648967
     isPrivate: false
 spec:
   contents:
@@ -26,8 +26,8 @@ spec:
       title: Swagger Petstore - OpenAPI 3.0
       description: |-
         This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
-        Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
-        You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+        Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we"ve switched to the design first approach!
+        You can now help us improve the API whether it"s by making changes to the definition itself or to the code.
         That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
 
         Some useful links:
@@ -39,7 +39,7 @@ spec:
       license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
-      version: 1.0.28-SNAPSHOT
+      version: 1.0.27-SNAPSHOT
     externalDocs:
       description: Find out more about Swagger
       url: https://swagger.io
@@ -797,6 +797,6 @@ spec:
           xml:
             name: "##default"
   meta:
-    id: spc_c69ce10cb1ee4873b38749ec1ee66b4c
-    created: 1772224805
-    modified: 1772635740725
+    id: spc_c235e2155f6f4c74a7074adb85235e23
+    created: 1772648967
+    modified: 1772648967
