@@ -4,6 +4,8 @@ DEFAULT_NAME="my_design_document"
 echo "Name for new design document [Default: $DEFAULT_NAME]"
 read filename
 
+git checkout -b "feat/$filename"
+
 filename="${filename:-$DEFAULT_NAME}"
 
 mkdir -p ./openapi/$filename
@@ -27,3 +29,6 @@ sed -i "s/<jar>/$jar/g"  ./openapi/$filename/$filename.yaml
 sed -i "s/<env>/$env/g"  ./openapi/$filename/$filename.yaml
 sed -i "s/<spec>/$spec/g"  ./openapi/$filename/$filename.yaml
 
+git add ./openapi/$filename
+git commit -m "Create $filename design document"
+git push --set-upstream origin "feat/$filename"

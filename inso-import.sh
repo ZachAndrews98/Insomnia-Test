@@ -4,6 +4,8 @@ DEFAULT_NAME="my_design_document"
 echo "Name for new design document [Default: $DEFAULT_NAME]"
 read filename
 
+git checkout -b "feat/$filename"
+
 filename="${filename:-$DEFAULT_NAME}"
 
 # Get a timestamp to use for initial created/updated at time
@@ -32,3 +34,6 @@ sed -i 's/'"'"'/"/g' ./openapi/$filename/$filename.yaml
 # sed -i "r /<content>/ ./openapi/$filename/temp-oas.yaml" ./openapi/$filename/$filename.yaml
 rm ./openapi/$filename/temp-oas.yaml
 
+git add ./openapi/$filename
+git commit -m "Migrate $filename OAS"
+git push --set-upstream origin "feat/$filename"
