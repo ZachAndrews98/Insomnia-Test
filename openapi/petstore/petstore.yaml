@@ -2,22 +2,22 @@ type: spec.insomnia.rest/5.0
 schema_version: "5.1"
 name: petstore
 meta:
-  id: wrk_add965bb0a08462383504084886b80ab
-  created: 1773081098
-  modified: 1773081098
+  id: wrk_62d40314784947f3bc714b3a5fe044b1
+  created: 1774977442
+  modified: 1774977442
   description: ""
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_8880194febf64352bf5b99a051b41408
-    created: 1773081098
-    modified: 1773081098
+    id: jar_a87c763e75704e358438b2f4daa00841
+    created: 1774977442
+    modified: 1774977442
 environments:
   name: Base Environment
   meta:
-    id: env_681225b8ac0b4d9dba8d02d1c20d4818
-    created: 1773081098
-    modified: 1773081098
+    id: env_d4eab3a8ba5f4913b5557f353d79e9ff
+    created: 1774977442
+    modified: 1774977442
     isPrivate: false
 spec:
   contents:
@@ -39,7 +39,7 @@ spec:
       license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
-      version: 1.0.28-SNAPSHOT
+      version: 1.0.27-SNAPSHOT
     externalDocs:
       description: Find out more about Swagger
       url: https://swagger.io
@@ -797,6 +797,6 @@ spec:
           xml:
             name: "##default"
   meta:
-    id: spc_9c463d5523bd456f8fb080deba077127
-    created: 1773081098
-    modified: 1774977520728
+    id: spc_61cf098614e940799db3fe5d1df02fe8
+    created: 1774977442
+    modified: 1774977442
